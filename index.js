@@ -1,7 +1,15 @@
-// const { writeFile, copyFile } = require("./dist/generate-site.js");
+// external paths needed
 const inquirer = require("inquirer");
-const generatePage = require("./src/page-template");
+const fs = require("fs");
+// const generatePage = require("./src/page-template");
 
+// // Team building!
+// const Employee = require("./lib/Employee");
+// const Engineer = require("./lib/Engineer");
+// const Intern = require("./lib/Intern");
+// const teamArray = [];
+
+// start of the user interface
 const promptUser = () => {
   return inquirer.prompt([
     {
@@ -31,64 +39,63 @@ const promptUser = () => {
         }
       },
     },
-
+// not going to pretend - got this from w3 resource
     {
       type: "input",
       name: "email",
       message: "What is the team manager's email address? (Required)",
-      validate: (emailInput) => {
-        if (emailInput) {
-          return true;
-        } else {
-          console.log("Please enter the email address!");
-          return false;
+      validate: (email) => {
+           valid = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(email);
+        if (valid) {
+            return true;
+        } else {  
+            return "You have entered an invalid email address!"
         }
-      },
+        }
     },
+   
     {
       type: "input",
       name: "phone",
       message: "What is the team manager's phone number? (Required)",
-      validate(value) {
-        const pass = value.match(
-          /^([01]{1})?[-.\s]?\(?(\d{3})\)?[-.\s]?(\d{3})[-.\s]?(\d{4})\s?((?:#|ext\.?\s?|x\.?\s?){1}(?:\d+)?)?$/i
-        );
+      validate: (phone) => {
+        pass = /^([01]{1})?[-.\s]?\(?(\d{3})\)?[-.\s]?(\d{3})[-.\s]?(\d{4})\s?((?:#|ext\.?\s?|x\.?\s?){1}(?:\d+)?)?$/.test(phone);
         if (pass) {
           return true;
+        }   else {
+            return "Please enter a valid phone number";
         }
-
-        return "Please enter a valid phone number";
-      },
+      }
     },
   ]);
 };
 
-const promptSubs = (SubsData) => {
-  return inquirer
-    .prompt([
-  
-     {
-        type: "confirm",
-        name: "confirmSubordinate",
-        message: "Would you like to add another team memeber?",
-        default: false,
-      },
-    {
-      type: 'list',
-      name: 'subTitle',
-      message: 'What type of employee would you like to add?',
-      choices: ['Engineer', 'Intern'],
-    
-      },
+promptUser();
 
-   
-         ])
-    .then((projectData) => {
-      portfolioData.projects.push(projectData);
-      if (projectData.confirmAddProject) {
-        return promptProject(portfolioData);
-      } else {
-        return portfolioData;
-      }
-    });
-};
+// const promptSubs = (SubsData) => {
+//   return inquirer
+//     .prompt([
+//       {
+//         type: "list",
+//         name: "subTitle",
+//         message: "What type of employee would you like to add?",
+//         choices: ["Engineer", "Intern"],
+//       },
+     
+//       {
+//         type: "confirm",
+//         name: "confirmSubordinate",
+//         message: "Would you like to add another team memeber?",
+//         default: false,
+//       },
+
+//     ])
+//     .then((projectData) => {
+//       portfolioData.projects.push(projectData);
+//       if (projectData.confirmAddProject) {
+//         return promptProject(portfolioData);
+//       } else {
+//         return portfolioData;
+//       }
+//     });
+// };
