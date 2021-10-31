@@ -34,7 +34,7 @@ WHEN I decide to finish building my team
 THEN I exit the application, and the HTML is generated
 
 ## Images 
-![Example of HTML output](src\teamexampl.JPG)
+![Example of HTML output](https://github.com/Jsumme1/TeamProfileGenerator/blob/main/src/teamexampl.JPG)
 
 
 ## Contributions
