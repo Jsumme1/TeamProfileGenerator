@@ -10,12 +10,9 @@ const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const teamArray = [];
 
-// function appStart() 
-
-//   //  addHTML();
 
 
-// start of the user interface
+// start of the user interface - Manager data first
 const promptUser = () => {
   return inquirer
     .prompt([
@@ -87,11 +84,10 @@ const promptUser = () => {
       const manager = new Manager(name, id, email, phone);
 
       teamArray.push(manager);
-      console.log(manager);
     });
 };
 
-
+// get team members/subordinates data
 
 const promptSubs = () => {
   return inquirer
@@ -192,7 +188,6 @@ const promptSubs = () => {
         }
 
         teamArray.push(employee); 
-        console.log(employee);
 
         if (confirmAddEmployee) {
             return promptSubs(teamArray); 
@@ -207,13 +202,11 @@ const promptSubs = () => {
 // function to generate HTML page file using file system 
 const writeFile = data => {
     fs.writeFile('./dist/index.html', data, err => {
-        // if there is an error 
-        if (err) {
+             if (err) {
             console.log(err);
             return;
-        // when the profile has been created 
-        } else {
-            console.log("Your team profile has been successfully created! Please check out the index.html")
+          } else {
+            console.log("Your team profile has been successfully generated! Please check out the index.html in dist folder")
         }
     })
 }; 

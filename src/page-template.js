@@ -2,15 +2,15 @@
 const generateManager = function (manager) {
   return `
     <div class="col-4 mt-4">
-        <div class="card h-100">
-            <div class="card-header">
+        <div class="card h-100" style="max-width: 18rem;">
+            <div class="card-header text-white bg-primary mb-3">
                 <h3>${manager.name}</h3>
-                <h4>Manager</h4><i class="material-icons">content_paste</i>
+                <h4>Manager</h4><i class="material-icons">work</i>
             </div>
             <div class="card-body">
-                <p class="id">ID: ${manager.id}</p>
-                <p class="email">Email: <a href="mailto:${manager.email}">${manager.email}</a></p>
-                <p class="office">Office Number: ${manager.phone}</p>
+                <p>ID: ${manager.id}</p>
+                <p>Email: <a href="mailto:${manager.email}">${manager.email}</a></p>
+                <p>Office Number: ${manager.phone}</p>
             </div>
         </div>
     </div>
@@ -21,15 +21,15 @@ const generateManager = function (manager) {
 const generateEngineer = function (engineer) {
   return `
     <div class="col-4 mt-4">
-        <div class="card h-100">
-            <div class="card-header">
+        <div class="card h-100" style="max-width: 18rem;">
+            <div class="card-header text-white bg-success mb-3">
                 <h3>${engineer.name}</h3>
-                <h4>Engineer</h4><i class="material-icons">laptop_mac</i>
+                <h4>Engineer</h4><i class="material-icons">engineering</i>
             </div>
             <div class="card-body">
-                <p class="id">ID: ${engineer.id}</p>
-                <p class="email">Email: <a href="mailto:${engineer.email}">${engineer.email}</a></p>
-                <p class="github">Github: <a href="https://github.com/${engineer.github}">${engineer.github}</a></p>
+                <p>ID: ${engineer.id}</p>
+                <p>Email: <a href="mailto:${engineer.email}">${engineer.email}</a></p>
+                <p>Github: <a href="https://github.com/${engineer.github}">${engineer.github}</a></p>
             </div>
         </div>
     </div>
@@ -40,15 +40,15 @@ const generateEngineer = function (engineer) {
 const generateIntern = function (intern) {
   return `
     <div class="col-4 mt-4">
-        <div class="card h-100">
-            <div class="card-header">
+        <div class="card h-100" style="max-width: 18rem;">
+            <div class="card-header text-white bg-info mb-3">
                 <h3>${intern.name}</h3>
-                <h4>Intern</h4><i class="material-icons">assignment_ind</i>
+                <h4>Intern</h4><i class="material-icons">sports_esports</i>
             </div>
             <div class="card-body">
-                <p class="id">ID: ${intern.id}</p>
-                <p class="email">Email:<a href="mailto:${intern.email}">${intern.email}</a></p>
-                <p class="school">School: ${intern.school}</p>
+                <p>ID: ${intern.id}</p>
+                <p>Email:<a href="mailto:${intern.email}">${intern.email}</a></p>
+                <p>School: ${intern.school}</p>
             </div>
     </div>
 </div>
@@ -107,13 +107,13 @@ const generateTeamPage = function (employeeCards) {
       <link href="https://fonts.googleapis.com/css?family=Public+Sans:300i,300,500&display=swap" rel="stylesheet">
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <link rel="stylesheet" href="style.css">
+     
   </head>
   <body>
-      <header>
-          <nav class="navbar" id="navbar">
-              <span class="navbar-brand mb-0 h1 w-100 text-center" id="navbar-text">Team Profile</span>
-          </nav>
+      <header>  
+           <div class ="container text-center bg-danger text-white">
+     <h1>My Team Profile</h1>
+            </div>
       </header>
       <main>
           <div class="container">
